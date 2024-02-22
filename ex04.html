@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 04</title>
+</head>
+<body>
+    <input type="text" id="input_nome" placeholder="guerreiro, informe seu nome">
+    <input type="text" id="input_ki" placeholder="guerreiro, informe seu ki normal">
+
+    <button onclick="calcKi()">Ver ki em cada forma</button>
+</body>
+</html>
+
+<script>
+    function calcKi() {
+        var nome = input_nome.value;
+        var ki = Number(input_ki.value);
+        var msg1 = "Olá, " + nome + " seu ki na forma Super Sayajin é: " + (ki * 50);
+        var msg2 = "Olá novamente, " + nome + " seu ki na forma Super Sayajin 2 é: " + (ki * 100);
+
+        alert(msg1);
+        alert(msg2);
+    }
+</script>

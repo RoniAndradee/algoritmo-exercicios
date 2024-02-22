@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 05</title>
+</head>
+<body>
+    <input type="text" id="input_notaContinuada" placeholder="Informe a nota que tirou na avaliação continuada">
+    <input type="text" id="input_notaSemestral" placeholder="Informe a nota que tirou na avaliação semestral">
+    <input type="text" id="input_nome" placeholder="Informe seu nome">
+
+    <button onclick="calcMedia()">Exibir média</button>
+</body>
+</html>
+
+<script>
+    function calcMedia() {
+        var nome = input_nome.value;
+        var notaContinuada = Number(input_notaContinuada.value);
+        var notaSemestral = Number(input_notaSemestral.value);
+
+        var media = (notaContinuada * 40) / 100 + (notaSemestral * 60) / 100;
+        var msg = "A média de " + nome + " será de " + media;
+    
+        alert(msg);
+    }
+
+</script>

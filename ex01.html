@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 01</title>
+</head>
+<body>
+    <input type="text" id="input_idade" placeholder="Digite sua idade">
+    <button onclick="apsHomem()">Aposentadoria Homem</button>
+    <button onclick="apsMulher()">Aposentadoria Mulher</button>
+</body>
+</html>
+
+<script>
+    function apsHomem() {
+        var idade = input_idade.value;
+        var msg = "Faltam " + (70 - idade) + " anos para você se aposentar!";
+
+        alert(msg);
+    }
+    function apsMulher() {
+        var idade = input_idade.value;
+        var msg = "Faltam " + (60 - idade) + " anos para você se aposentar!";
+        
+        alert(msg);
+    }
+</script>
