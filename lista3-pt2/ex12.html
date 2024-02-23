@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex 12</title>
+</head>
+<body>
+    Digite o sabor da pizza: <input type="text" id="inputSabor">
+    Digite o valor da pizza: <input type="text" id="inputValor">
+    Digite a quantidade de amigos que vão comer: <input type="text" id="inputAmigos">
+    <button onclick="calcTotal()">Ver valor por amigo</button>
+    <div id="divTotal">
+
+    </div>
+
+</body>
+</html>
+
+<script>
+    var sabor = "";
+    var valor = 0;
+    var qtdAmigos = 0;
+    var total = 0;
+
+    function calcTotal(){
+        sabor = inputSabor.value;
+        valor = inputValor.value;
+        qtdAmigos = inputAmigos.value;
+        total = (valor * 0.10) / qtdAmigos;
+        divTotal.innerHTML = `Cada amigo vai colaborar com R$${total} para a pizza de ${sabor}`
+    }
+</script>
