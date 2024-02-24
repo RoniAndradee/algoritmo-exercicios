@@ -6,9 +6,9 @@
     <title>ex 13</title>
 </head>
 <body>
-    Informe o valor da passagem <input type="text" id="inputValor">
-    informe a quantidade de viagens que faz por mês: <input type="text" id="inputQntd">
-    informe a distancia do trabalho até sua casa (KM) <input type="text" id="inputDist">
+    Informe o valor da passagem <input type="text" id="inputValor"> <br><br>    
+    informe a quantidade de viagens que faz por mês: <input type="text" id="inputQntd"> <br><br>
+    informe a distancia do trabalho até sua casa (KM) <input type="text" id="inputDist"><br><br>
 
     <button onclick="calcVT()">Calcular VT</button>
 
@@ -17,19 +17,23 @@
 </html>
 
 <script>
-    var valorPsg = 0;
-    var quantidadePsg = 0;
+    var valorPassagem = 0;
+    var valorUber = 0.75;
+    var qtdViagens = 0;
     var dist = 0;
-    var psgUber = 0.75;
-    var viagensUber = 0;
-    var total = 0
-    
-    function calcVT(){
-        valorPsg = inputValor.value;
-        quantidadePsg = inputQntd.value;
-        dist = inputDist.value;
-        total = valorPsg * quantidadePsg * dist
+    var totalOnibus = 0;
+    var totalUber = 0;
+    var total = 0;
 
-        div_vt.innerHTML = `Você vai gastar R$ ${total} por mês com transporte`
+
+    function calcVT(){
+        valorPassagem = Number(inputValor.value);
+        qtdViagens = Number(inputQntd.value);
+        dist = Number(inputDist.value);
+        totalOnibus = (qtdViagens * 0.90) * valorPassagem;
+        totalUber = ((qtdViagens * 0.10) * dist) * valorUber;
+        total = totalOnibus + totalUber;
+        
+        div_vt.innerHTML = `Você vai gastar R$ ${total} por mês com transporte` 
     }
 </script>
