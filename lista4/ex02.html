@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a quantidade de latinhas por dia: <input type="text" id="inputLatinhas">
+    <button onclick="calc()">Quantos refris?</button>
+
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    var qtdLatinhas = 0;
+
+    function calc() {
+        qtdLatinhas = Number(inputLatinhas.value);
+        var consumo = qtdLatinhas * 365;
+        divMensagem.innerHTML += `Por ano você consome ${consumo} latinhas de refri! <br>`
+        
+        if (consumo >= 500) {
+            divMensagem.innerHTML += `Cuidado com a diabetes!`
+        }
+    }
+</script>
