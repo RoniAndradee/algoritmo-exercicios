@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a última série (SITCOM) que você assistiu: <input type="text" id="inputSerie">
+    Iforme o total de episódios que você já assistiu dessa série: <input type="text" id="inputEps">
+
+    <button onclick="verificar()">Verificar nível</button>
+
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    var serie = "";
+    var qtdEps = 0;
+    var duracao = 22;
+    var tempo = 0;
+
+    function verificar(){
+        serie = inputSerie.value;
+        qtdEps = Number(inputEps.value);
+        tempo = qtdEps * duracao;
+
+        divMensagem.innerHTML += `Vejo que você gosta da série ${serie}<br>`;
+        
+        if(tempo > 1800){
+            divMensagem.innerHTML += `Uau, você realmente gosta dessa série!`; 
+        }
+    }
+</script>

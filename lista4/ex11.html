@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a quantidade de filhos: <input type="text" id="inputFilhos">
+
+    <button onclick="analisar()">Analisar família</button>
+
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    var qtdFilhos = 0;
+
+    function analisar(){
+        qtdFilhos = Number(inputFilhos.value)
+        
+        if(qtdFilhos >= 1){
+            divMensagem.innerHTML += `Não tem TV<br>`
+        }
+        
+        if(qtdFilhos >= 2){
+            divMensagem.innerHTML += `Não tem internet<br>`
+        }
+        
+        if(qtdFilhos >= 3){
+            divMensagem.innerHTML += `Não tem video game<br>`
+        }
+        
+        if(qtdFilhos >= 4){
+            divMensagem.innerHTML += `Não tem Netflix`
+        }
+    }
+</script>

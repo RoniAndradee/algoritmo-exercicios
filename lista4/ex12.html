@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe o peso total no elevador: <input type="text" id="inputPeso">
+    <button onclick="calcular()">Ligar elevador</button>
+</body>
+</html>
+
+<script>
+    var peso = 0;
+
+    function calcular(){
+        peso = Number(inputPeso.value)
+
+        if(peso < 500){
+            alert(`Elevador vai se mover`)
+        } else {
+            alert(`Alguém precisa descer do elevador`)
+        }
+    }
+
+</script>

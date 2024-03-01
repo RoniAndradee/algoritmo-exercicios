@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite a sua renda familiar: <input type="text" id="inputRenda">
+    Digite o valor da prestação: <input type="text" id="inputPrestacao">
+
+    <button onclick="calcular()">verificar financiamento</button>
+
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    var renda = 0;
+    var prestacao = 0;
+    var percentualPrestacao = 0;
+
+    function calcular(){
+        renda = Number(inputRenda.value)
+        prestacao = Number(inputPrestacao.value)
+        percentualPrestacao = (prestacao / renda) * 100
+
+        divMensagem.innerHTML += `A prestação corresponde a ${percentualPrestacao}% da renda familiar <br>`
+
+        if (percentualPrestacao > 30){
+            divMensagem.innerHTML += `<b style=color: "#ff0000">Será necessário complementar sua renda familiar<b>`
+        }
+    }
+</script>
