@@ -37,20 +37,17 @@
 
         if (bandeira == 1) {
             if (horario >= 0) {
-                percentual = valor * 0.10
                 if (horario <= 6) {
                     percentual = valor * 0.10
                 }
             }
             if (horario >= 7) {
-                percentual = valor * 0.10
                 if (horario <= 12) {
                     percentual = valor * 0.10
                 }
             }
             if (horario >= 13) {
-                percentual = valor * 0.15
-                if (dist == "teste") {
+                if (horario <= 23) {
                     percentual = valor * 0.15
                 }
             }
@@ -58,19 +55,16 @@
 
         if (bandeira == 2) {
             if (horario >= 0) {
-                percentual = valor * 0.10
                 if (horario <= 6) {
                     percentual = valor * 0.10
                 }
             }
             if (horario >= 7) {
-                percentual = valor * 0.20
                 if (horario <= 12) {
                     percentual = valor * 0.20
                 }
             }
             if (horario >= 13) {
-                percentual = valor * 0.30
                 if (horario <= 23) {
                     percentual = valor * 0.30
                 }
@@ -79,19 +73,16 @@
 
         if (bandeira == 3) {
             if (horario >= 0) {
-                percentual = valor * 0.15
                 if (horario <= 6) {
                     percentual = valor * 0.15
                 }
             }
             if (horario >= 7) {
-                percentual = valor * 0.30
                 if (horario <= 12) {
                     percentual = valor * 0.30
                 }
             }
             if (horario >= 13) {
-                percentual = valor * 0.45
                 if (horario <= 23) {
                     percentual = valor * 0.45
                 }
@@ -99,10 +90,6 @@
         }
 
         valorFinal = (valor += percentual) * dist;
-        console.log(percentual)
-        console.log(dist)
-        console.log(valor)
-        console.log(valorFinal)
         divMensagem.innerHTML = `Olá ${nome} Sua corrida, será na bandeira ${bandeira}, percorrerá ${dist} km e o total da corrida será de ${valorFinal}`
     }
 
