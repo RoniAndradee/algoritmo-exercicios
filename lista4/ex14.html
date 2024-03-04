@@ -33,72 +33,70 @@
         nome = inputNome.value;
         dist = Number(inputDist.value);
         bandeira = Number(inputBandeira.value);
-        horario = Number(inputHorario);
+        horario = Number(inputHorario.value);
 
-        if (bandeira === 1) {
-            // if (horario >= 0) {
-            //     percentual = valor * 0.10
-            //     if (horario <= 6) {
-            //         percentual = valor * 0.10
-            //     }
-            // }
-            // if (horario >= 7) {
-            //     percentual = valor * 0.10
-            //     if (horario <= 12) {
-            //         percentual = valor * 0.10
-            //     }
-            // }
-            // if (horario >= 13) {
-            //     percentual = valor * 0.15
-            //     console.log("aqui foi")
-            // }
-            if (horario <= 23) {
-                console.log("aqui tbm carai")
+        if (bandeira == 1) {
+            if (horario >= 0) {
+                percentual = valor * 0.10
+                if (horario <= 6) {
+                    percentual = valor * 0.10
+                }
+            }
+            if (horario >= 7) {
+                percentual = valor * 0.10
+                if (horario <= 12) {
+                    percentual = valor * 0.10
+                }
+            }
+            if (horario >= 13) {
                 percentual = valor * 0.15
+                if (dist == "teste") {
+                    percentual = valor * 0.15
+                }
             }
         }
 
-        // if (bandeira == 2) {
-        //     if (horario >= 0) {
-        //         percentual = valor * 0.10
-        //         if (horario <= 6) {
-        //             percentual = valor * 0.10
-        //         }
-        //     }
-        //     if (horario >= 7) {
-        //         percentual = valor * 0.20
-        //         if (horario <= 12) {
-        //             percentual = valor * 0.20
-        //         }
-        //     }
-        //     if (horario >= 13) {
-        //         percentual = valor * 0.30
-        //         if (horario <= 23) {
-        //             percentual = valor * 0.30
-        //         }
-        //     }
-        // }
+        if (bandeira == 2) {
+            if (horario >= 0) {
+                percentual = valor * 0.10
+                if (horario <= 6) {
+                    percentual = valor * 0.10
+                }
+            }
+            if (horario >= 7) {
+                percentual = valor * 0.20
+                if (horario <= 12) {
+                    percentual = valor * 0.20
+                }
+            }
+            if (horario >= 13) {
+                percentual = valor * 0.30
+                if (horario <= 23) {
+                    percentual = valor * 0.30
+                }
+            }
+        }
 
-        // if (bandeira == 3) {
-        //     if (horario >= 0) {
-        //         percentual = valor * 0.15
-        //         if (horario <= 6) {
-        //             percentual = valor * 0.15
-        //         }
-        //     }
-        //     if (horario >= 7) {
-        //         percentual = valor * 0.30
-        //         if (horario <= 12) {
-        //             percentual = valor * 0.30
-        //         }
-        //     }
-        //     if (horario >= 13) {
-        //         percentual = valor * 0.45
-        //         if (horario <= 23) {
-        //             percentual = valor * 0.45
-        //         }
-        //     }
-        // }
+        if (bandeira == 3) {
+            if (horario >= 0) {
+                percentual = valor * 0.15
+                if (horario <= 6) {
+                    percentual = valor * 0.15
+                }
+            }
+            if (horario >= 7) {
+                percentual = valor * 0.30
+                if (horario <= 12) {
+                    percentual = valor * 0.30
+                }
+            }
+            if (horario >= 13) {
+                percentual = valor * 0.45
+                if (horario <= 23) {
+                    percentual = valor * 0.45
+                }
+            }
+        }
 
         valorFinal = (valor += percentual) * dist;
         console.log(percentual)
