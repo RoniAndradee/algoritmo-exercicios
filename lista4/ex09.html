@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    Informe a última série (SITCOM) que você assistiu: <input type="text" id="inputSerie">
-    Iforme o total de episódios que você já assistiu dessa série: <input type="text" id="inputEps">
+    Informe a última série (SITCOM) que você assistiu: <input type="text" id="inputSerie"> <br>
+    Iforme o total de episódios que você já assistiu dessa série: <input type="text" id="inputEps"> <br>
 
     <button onclick="verificar()">Verificar nível</button>
 
@@ -26,10 +26,10 @@
         qtdEps = Number(inputEps.value);
         tempo = qtdEps * duracao;
 
-        divMensagem.innerHTML += `Vejo que você gosta da série ${serie}<br>`;
+        divMensagem.innerHTML = `Vejo que você gosta da série ${serie}`;
         
-        if(tempo > 1800){
-            divMensagem.innerHTML += `Uau, você realmente gosta dessa série!`; 
+        if (tempo > 1800){
+            divMensagem.innerHTML += `<br>Uau, você realmente gosta dessa série!`; 
         }
     }
 </script>
