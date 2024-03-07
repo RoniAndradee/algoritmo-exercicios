@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a temperatura do ambiente: <input type="text" id="inputTemperatura">
+    <button onclick="verificar()">Verificar clima</button>
+
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    var temperatura = 0;
+
+    function verificar(){
+        temperatura = Number(inputTemperatura.value)
+        if (temperatura < 10){
+            divMensagem.innerHTML = `O clima está apropriado para conservar alimentos <br> <img src="https://ser.vitao.com.br/wp-content/uploads/2017/09/16-Alimentos-que-d%C3%A3o-disposi%C3%A7%C3%A3o-2.jpg">` 
+        } else{
+            divMensagem.innerHTML = `O clima está inapropiado para conservar alimentos <br> <img src="https://thumbs.dreamstime.com/b/frutas-podres-17140351.jpg">` 
+        }
+    }
+</script>
