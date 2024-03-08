@@ -24,6 +24,7 @@
     var faturamentoBruto = 0; //o usuario informa a faturamento bruto de seu mercado
     var percentalPerda = 0.05; //o percentual de perda devido a ruptura segundo pesquisas é de 5% do rendimento faturamento mensal
     var perdaMensal = 0; //será calculado quanto o usario perderá por mês com a ruptura
+    var perdaSetorial = 0; //mostra a perda por setorial
 
     //vou mostrar quanto o cliente perde de dinheiro em média em cada setor
     //e mostrarei quanto ele perde do faturamento mensal total em função da ruptura
@@ -33,6 +34,12 @@
         qtdSetores = Number(inputSetores.value);
         faturamentoBruto = Number(inputFaturamento.value);
         
+        perdaMensal = faturamentoBruto * percentalPerda;
+        perdaSetorial = faturamentoBruto / qtdSetores;
+
+        console.log(perdaMensal)
+        console.log(perdaSetorial)
+
     }
 
 
