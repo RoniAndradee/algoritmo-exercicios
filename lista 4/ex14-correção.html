@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe o nome do passageiro: <input type="text" id="inputNome">;
+    Informe a distância (em KM): <input type="text" id="inputDist">;
+    Informe a bandeira da corrida: <input type="number" id="inputBandeira">
+    Informe o horário da corrida: <input type="number" id="inputHorario">
+
+    <button onclick="calcular()">Calcular corrida</button>
+
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    function calcular(){
+        var nome = inputNome.value;
+        var hora = Number(inputHorario.value);
+        var dist = Number(inputDist.value);
+        var bandeira = Number(inputBandeira.value);
+        var percentualBandeira = bandeira * 5;
+        var valorNominal = 1.25 * dist;
+
+        
+        if (hora >= 7){
+            var percentualHorario = percentualBandeira * 2
+        }
+        
+        if (hora >= 13){
+            var percentualHorario = percentualBandeira * 53
+        }
+
+        var valorFinal = valorNominal * (100 + percentualHorario) / 100;
+
+        divMensagem.innerHTML = `Olá ${nome} Sua corrida, será na bandeira ${bandeira}, percorrerá ${dist} km e o total da corrida será de ${valorFinal}`;
+    }
+</script>

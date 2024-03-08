@@ -11,7 +11,7 @@
     Informe o nome do passageiro: <input type="text" id="inputNome">;
     Informe a distância (em KM): <input type="text" id="inputDist">;
     Informe a bandeira da corrida: <input type="number" id="inputBandeira">
-    Informe o horário da corrida: <input type="text" id="inputHorario">
+    Informe o horário da corrida: <input type="number" id="inputHorario">
 
     <button onclick="calcular()">Calcular corrida</button>
 
@@ -90,7 +90,7 @@
         }
 
         valorFinal = (valor += percentual) * dist;
-        divMensagem.innerHTML = `Olá ${nome} Sua corrida, será na bandeira ${bandeira}, percorrerá ${dist} km e o total da corrida será de ${valorFinal}`
+        divMensagem.innerHTML = `Olá ${nome} Sua corrida, será na bandeira ${bandeira}, percorrerá ${dist} km e o total da corrida será de ${valorFinal}`;  
     }
 
 </script>
