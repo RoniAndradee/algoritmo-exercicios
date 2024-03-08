@@ -27,6 +27,7 @@
     var custoBase = 0;
     var estimativaTempo = 0;
     var acrescimoTempo = 0;
+    var descontoTempo = 0;
     var passageiroExtra = 0;
     var bonusHorario = 0;
     var adicionalHorario = 0;
@@ -53,7 +54,7 @@
         }
         
         if (tempoDuracao < estimativaTempo - estimativaTempo * 0.10){
-            acrescimoTempo = custoBase * 0.08;
+            descontoTempo = custoBase * 0.08;
         }
 
         if (qtdPassageiros - 1 > 1){
@@ -70,7 +71,7 @@
             }
         }
         
-        total = custoBase + acrescimoTempo + passageiroExtra - bonusHorario + adicionalHorario;
+        total = custoBase + acrescimoTempo - descontoTempo + passageiroExtra - bonusHorario + adicionalHorario;
         consumoLitros = distancia / 12;
         consumoValor = consumoLitros * 4;
         divMensagem.innerHTML += `<br>A viagem foi iniciada às ${horarioInicio} horas e tinha estimativa de ${estimativaTempo} minutos e durou ${tempoDuracao} minutos, percorrendo ${distancia} KM, com ${qtdPassageiros} passageiros, totalizando R$${total} do preço da corrida. Com essa distância, foram consumidos ${consumoLitros} litros de gasolina, totalizando R$${consumoValor} de consumo.<br>`;
