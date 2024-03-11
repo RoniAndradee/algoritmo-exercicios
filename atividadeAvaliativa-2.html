@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Avaliativa 2</title>
+</head>
+<body>
+    Informe o valor de seu salário: <input type="text" id="inputSalario">
+    Informe o seu adicional mensal: <input type="text" id="inputAdicional">
+    Informe o seu bônus: <input type="text" id="inputBonus">
+
+    <button onclick="analisar()">Analisar Minha Renda</button>
+
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    var salario = 0;
+    var adicional = 0;
+    var bonus = 0;
+    var salarioBruto = 0;
+    var impostoRenda = 0;
+    var inss = 0;
+    var fgts = 0;
+    var salarioLiquido = 0;
+
+    function analisar(){
+        salario = Number(inputSalario.value);
+        adicional = Number(inputAdicional.value);
+        bonus = Number(inputBonus.value);
+        salarioBruto = salario + adicional + bonus;
+        
+        if (salarioBruto >= 10000){
+            impostoRenda = (salarioBruto * 12.5) / 100;
+        }
+
+        inss = (salarioBruto - impostoRenda) * 0.10;
+        fgts = (salarioBruto - impostoRenda) * 0.08;
+        salarioLiquido = salarioBruto - impostoRenda - inss - fgts;
+
+        divMensagem.innerHTML = `Análise de sua renda <br>
+        Com o salário de R$${salario}, com adicional de R$${adicional} e bônus de R$${bonus}, você tem:<br>
+        Bruto: R$${salarioBruto}<br>
+        IR: R$${impostoRenda}<br>
+        INSS: R$${inss}<br>
+        FGTS: R$${fgts}<br>
+        Líquido: R$${salarioLiquido}<br>`;
+
+        if (salarioLiquido > 2500){
+            divMensagem.innerHTML += `Com a renda de R$${salarioLiquido}, é recomendado poupar R$${salarioLiquido * 15 / 100}, para que em um ano tenha poupado R$${((salarioLiquido * 15) / 100) * 12}`;
+        }
+
+        if (salarioLiquido  <= 2500){
+            divMensagem.innerHTML += `Com a renda de R$${salarioLiquido}, é recomendado obter renda exta para realizar uma poupaça.`
+        }
+    }
+</script>
