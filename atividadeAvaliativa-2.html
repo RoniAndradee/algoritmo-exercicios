@@ -6,10 +6,13 @@
     <title>Atividade Avaliativa 2</title>
 </head>
 <body>
-    Informe o valor de seu salário: <input type="text" id="inputSalario">
-    Informe o seu adicional mensal: <input type="text" id="inputAdicional">
-    Informe o seu bônus: <input type="text" id="inputBonus">
-
+    Salário: <input type="text" id="inputSalario">
+    <br>
+    Adicional: <input type="text" id="inputAdicional">
+    <br>
+    Bônus: <input type="text" id="inputBonus">
+    <br>
+    <br>
     <button onclick="analisar()">Analisar Minha Renda</button>
 
     <div id="divMensagem"></div>
@@ -40,20 +43,20 @@
         fgts = (salarioBruto - impostoRenda) * 0.08;
         salarioLiquido = salarioBruto - impostoRenda - inss - fgts;
 
-        divMensagem.innerHTML = `Análise de sua renda <br>
-        Com o salário de R$${salario}, com adicional de R$${adicional} e bônus de R$${bonus}, você tem:<br>
-        Bruto: R$${salarioBruto}<br>
-        IR: R$${impostoRenda}<br>
-        INSS: R$${inss}<br>
-        FGTS: R$${fgts}<br>
-        Líquido: R$${salarioLiquido}<br>`;
+        divMensagem.innerHTML = `<h3>Análise de sua renda</h3> <br>
+        Com o salário de <b>R$${salario}</b>, com adicional de <b>R$${adicional}</b> e bônus de <b>R$${bonus}</b>, você tem:<br>
+        Bruto: <b>R$${salarioBruto}</b><br>
+        IR: <b>R$${impostoRenda}</b><br>
+        INSS: <b>R$${inss}</b><br>
+        FGTS: <b>R$${fgts}</b><br>
+        Líquido: <b>R$${salarioLiquido}</b><br>`;
 
         if (salarioLiquido > 2500){
-            divMensagem.innerHTML += `Com a renda de R$${salarioLiquido}, é recomendado poupar R$${salarioLiquido * 15 / 100}, para que em um ano tenha poupado R$${((salarioLiquido * 15) / 100) * 12}`;
+            divMensagem.innerHTML += `Com a renda de <b>R$${salarioLiquido}</b>, é recomendado poupar <b>R$${salarioLiquido * 15 / 100}</b>, para que em um ano tenha poupado <b>R$${((salarioLiquido * 15) / 100) * 12}</b>`;
         }
 
         if (salarioLiquido  <= 2500){
-            divMensagem.innerHTML += `Com a renda de R$${salarioLiquido}, é recomendado obter renda exta para realizar uma poupaça.`
+            divMensagem.innerHTML += `Com a renda de <b>R$${salarioLiquido}</b>, é recomendado obter renda exta para realizar uma poupaça.`
         }
     }
 </script>
