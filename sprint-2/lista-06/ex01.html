@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Temperatura <input type="text" id="inputTemp">
+    <button onclick="situacao()">Ver situação</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    var temperatura = 0;
+
+    function situacao(){
+        temperatura = Number(inputTemp.value);
+        if (temperatura >= 21 && temperatura <= 24){
+            divMensagem.innerHTML = `Temperatura Confortável :D`;
+        } else {
+            divMensagem.innerHTML = `Temperatura Desconfortável :C`;
+        }
+    }
+
+</script>

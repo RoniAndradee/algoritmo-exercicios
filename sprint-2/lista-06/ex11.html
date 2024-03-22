@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    quantidade de passagens: <input type="text" id="inputQtdPassagens">
+    <button onclick="comprar()">Comprar</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    var qtdPassagens = 0;
+    var valorPassagem = 4.40;
+    var desconto = 0;
+
+    function comprar(){
+        qtdPassagens = Number(inputQtdPassagens.values);
+
+        if (qtdPassagens >= 8 && qtdPassagens <= 50){
+            if(qtdPassagens >= 8 && qtdPassagens <= 19){
+                desconto = 0.03;
+                valorPassagem = valorPassagem - valorPassagem * desconto
+            }
+        }
+    }
+</script>
