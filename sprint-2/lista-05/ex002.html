@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Renda Familiar: <input type="text" id="inputRenda">
+    <button onclick="analisar()">Analisar Renda</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    var rendaFamiliar = 0;
+
+    function analisar(){
+        rendaFamiliar = Number(inputRenda.value);
+
+        if (rendaFamiliar <= 250){
+            divMensagem.innerHTML = `Classe E`;
+        } else if (rendaFamiliar <= 900){
+            divMensagem.innerHTML = `Classe D`;
+        } else if (rendaFamiliar <= 2500){
+            divMensagem.innerHTML = `Classe C`;
+        } else if (rendaFamiliar <= 9500){
+            divMensagem.innerHTML = `Classe B`;
+        } else {
+            divMensagem.innerHTML = `Classe A`;
+        }
+    }
+</script>
