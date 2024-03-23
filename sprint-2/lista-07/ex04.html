@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Forma de pagamento: <input type="text" id="inputForma" placeholder="dinheiro, debito, credito, boleto">
+    <button onclick="analisar()">Analisar compra</button>
+</body>
+</html>
+
+<script>
+    var formaPagamento = '';
+
+    function analisar(){
+        formaPagamento = inputForma.value;
+
+        if (formaPagamento == 'dinheiro' || formaPagamento == 'debito'){
+            alert('Você terá que pagar a vista');
+        } else if (formaPagamento == 'crédito' || formaPagamento == 'boleto'){
+            alert('Pagamento poderá ser parcelado');
+        }
+    }
+</script>
