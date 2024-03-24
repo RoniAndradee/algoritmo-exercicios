@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    O mercado Sptech market precisa saber qual a média de produtos por clientes no dia e com a média saber se ela está boa ou ruim, faça um programa aonde o mercado informe
+
+    a)quantos cliente compram por dia
+
+    b)quantos produtos foram vendidos no dia
+
+    c)ao clicar em um botão apareça a mensagem abaixo dele escrito "Sua média de produtos por cliente é X" 
+
+    e se a média de produtos por cliente for apartir de 10 exiba abaixo de "c)", a frase "Sua média está boa" OBS:texto em verde
+
+    Caso a média de produtos for menor que 10 exiba "Sua média está ruim" OBS:texto em vermelho
+     -->
+
+     Quantidade de clientes por dia: <input type="text" id="inputClientes"><br>
+     Quantidade de produtos vendidos no dia: <input type="text" id="inputProdutos"><br>
+     <button onclick="calcular()">Ver média</button>
+     <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    var qtdClientes = 0;
+    var qtdProdutos = 0;
+    var media = 0;
+
+    function calcular(){
+        qtdClientes = Number(inputClientes.value);
+        qtdProdutos = Number(inputProdutos.value);
+        media = qtdProdutos / qtdClientes;
+        divMensagem.innerHTML = `Sua média de produtos por cliente é ${media}<br>`;
+
+        if (media >= 10){
+            divMensagem.innerHTML += `<span style="color:#0f0">Sua média está boa</span>`;
+        } else {
+            divMensagem.innerHTML += `<span style="color:#f00">Sua média está ruim</span>`;
+        }
+
+    }
+</script>
