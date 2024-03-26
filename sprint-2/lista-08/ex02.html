@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Altura: <input type="text" id="inputAltura">
+    Cor do cabelo:
+    <select id="selectCabelo">
+        <option value="#">Selecione a cor de seu cabelo</option>
+        <option value="1">Preto</option>
+        <option value="2">Vermelho</option>
+        <option value="3">Amarelo</option>
+        <option value="4">Castanho</option>
+    </select>
+    <button onclick="analisar()">Deu match?</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    function analisar(){
+        var altura = Number(inputAltura.value);
+        var corCabelo = selectCabelo.value;
+
+        if( altura < 1.85 && (corCabelo == '3' || corCabelo == '4')){
+            divMensagem.innerHTML = `<img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQDlspEg8yVvWV1ySCX09WCkmGd1TcBgGaRgvomLPUgmzZUCHqE">`;
+        }else {
+            divMensagem.innerHTML = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_K9-2iPN2_bT3_hRai0vZCI9kPdC3UCfYISGLLmfVbfNG3SY4">`;
+        }
+    }
+</script>

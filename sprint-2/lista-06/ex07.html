@@ -9,7 +9,7 @@
     Login: <input type="text" id="inputLogin">
     Senha <input type="password" id="inputSenha">
 
-    <button onclick="entrar()">entrar</button>
+    <button onclick="logar()">entrar</button>
 </body>
 </html>
 
@@ -17,14 +17,14 @@
     login = '';
     senha = '';
 
-    function entrar(){
+    function logar(){
         login = inputLogin.value;
         senha = inputSenha.value;
 
         if(login == 'SPTech' && senha == 'digital'){
             alert('Usuário autenticado com sucesso');
         } else{
-            alert('Falha na autenticação')
+            alert('Falha na autenticação');
         }
     }
 </script>
