@@ -6,6 +6,38 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div id="divGeral">
+        Login: <input type="text" id="inputLogin">
+        Senha: <input type="password" id="inputSenha">
+        Informação Pessoal: <input type="text" id="inputInfo">
+        <button onclick="autenticar()" id="botao">Autenticar</button>
+    </div>
+    <div id="divMensagem"></div>
 </body>
 </html>
+
+<script>
+    var login = '';
+    var senha = '';
+    var info = '';
+    var tentativas = 3;
+
+    function autenticar(){
+        login = inputLogin.value;
+        senha = inputSenha.value;
+        info = inputInfo.value;
+
+        if (login == 'ana' && senha == 'braga' && (info == '1949' || info == 'louro josé')){
+            divMensagem.innerHTML = `Usuário autenticado<br>`;
+            tentativas = 3;
+        } else{
+            divMensagem.innerHTML += `Falha na autenticação`;
+            tentativas--;
+            divMensagem.innerHTML += `<br>Você ainda tem ${tentativas} tentativa(s)<br>`;
+            if (tentativas == 0){
+                divMensagem.innerHTML += `<br>Usuário BLOQUEADO! Procure seu gerente!`;
+                botao.disabled = true;
+            }
+        }
+    }
+</script>
