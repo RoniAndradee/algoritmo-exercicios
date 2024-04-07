@@ -35,11 +35,11 @@
             divMensagem.innerHTML = `Usuário autenticado<br>`;
             tentativas = 3;
         } else if (tentativas == 0) {
-            divMensagem.innerHTML += `<br>Usuário BLOQUEADO! Procure seu gerente!`;
+            divMensagem.innerHTML = `<br>Usuário BLOQUEADO! Procure seu gerente!`;
             usuarioBloqueado = true
         } else {
             tentativas--;
-            divMensagem.innerHTML += `Falha na autenticação`;
+            divMensagem.innerHTML = `Falha na autenticação`;
             divMensagem.innerHTML += `<br>Você ainda tem ${tentativas} tentativa(s)<br>`;
 
         }

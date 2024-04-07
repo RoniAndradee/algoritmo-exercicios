@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="inputNum1">Insira o primeiro número para o intervalo</label>
+    <input type="text" id="inputNum1">
+    <label for="inputNum2">Insira o segundo número para o intervalo</label>
+    <input type="text" id="inputNum2">
+    <button onclick="intervalo()">S2 Pares</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    function intervalo(){
+        var num1 = Number(inputNum1.value);
+        var num2 = Number(inputNum2.value);
+        var resultado = '';
+
+            for(var contador = num1; contador <= num2; contador++){
+                var resto = contador % 2
+                if (resto == 0){
+                    resultado += `<br>${contador}`;
+                }
+            }
+            divMensagem.innerHTML = `${resultado}`;
+        }
+</script>

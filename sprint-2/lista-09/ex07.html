@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="inputNum">Digite um número</label>
+    <input type="text" id="inputNum" min="20" max="100">
+    <button onclick="adoro()">Adoro múltiplos de 5</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    function adoro(){
+        var numero = Number(inputNum.value);
+        var resultado = '';
+        if(numero >= 20 && numero <= 100){
+            for(var contador = 0; contador <= numero; contador++){
+                var resto = contador % 5;
+                if(resto == 0){
+                    resultado += `<br>${contador}`
+                }
+            }
+        }
+        divMensagem.innerHTML = `${resultado}`;
+    }
+</script>
