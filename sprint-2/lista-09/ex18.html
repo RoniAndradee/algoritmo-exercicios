@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="inputXicaras">Quantas xícaras de café com leite você já tomou na vida?</label>
+    <input type="text" id="inputXicaras">
+    <button onclick="ver()">Ver a quantidade</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    function ver(){
+        var qtdXicaras = Number(inputXicaras.value);
+        var resultado = '';
+
+        for(var contador = 1; contador <= qtdXicaras; contador++){
+            resultado += `<img src="https://minhasaude.proteste.org.br/wp-content/uploads/2023/06/colher-carregando-punhado-de-leite-em-po-sobre-fundo-branco.jpg" style="width:200px; heigth:200px"> <img src="https://img.freepik.com/fotos-premium/cafe-em-po-cafe-em-colher-isolado-no-fundo-branco_250899-63.jpg" style="width:200px; heigth:200px"> <img src="https://img.freepik.com/fotos-premium/cafe-em-po-cafe-em-colher-isolado-no-fundo-branco_250899-63.jpg" style="width:200px; heigth:200px"> `
+        }
+        divMensagem.innerHTML = `${resultado}`;
+    }
+</script>

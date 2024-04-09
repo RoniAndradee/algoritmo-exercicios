@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label>Qual tabuada você deseja?</label>
+    <select id="selectTabuada">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select>
+    <label for="inputMax">Até qual número a tabuada deve ser construída</label>
+    <input type="text" id="inputMax">
+    <button onclick="tabuada()">Ver tabuada</button>
+    <div id="divMensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function tabuada() {
+        var numTabuada = Number(selectTabuada.value);
+        var maxTabuada = Number(inputMax.value);
+        var resto = 0
+        var resultado = '';
+
+        for (var contador = 1; contador <= maxTabuada; contador++) {
+            resto = contador % 2;
+            if (resto == 0) {
+                resultado += `<br><span style="color:#0F0">${numTabuada} x ${contador} = ${numTabuada * contador}<span>`
+            } else {
+                resultado += `<br><span style="color:#F00">${numTabuada} x ${contador} = ${numTabuada * contador}<span>`
+
+            }
+        }
+
+        divMensagem.innerHTML = `${resultado}`
+    }
+</script>

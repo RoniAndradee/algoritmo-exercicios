@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="inputPassageiros">Quantas pessoas vão entrar no carro?</label>
+    <input type="text" id="inputPassageiros">
+    <label for="inputMaxPassageiros">Qual a capacidade máxima do seu veículo?</label>
+    <input type="text" id="inputMaxPassageiros">
+    <button onclick="partiu()">#Partiu Carona</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    function partiu(){
+        var qtdPassageiros = Number(inputPassageiros.value);
+        var maxPassageiros = Number(inputMaxPassageiros.value);
+        var resultado = '';
+
+        for(var contador = 1; contador <= qtdPassageiros; contador++){
+            if(contador == 1){
+                resultado += `<br>Entrou o ${contador}° passageiro (que é o(a) motorista)`;
+            } else if(contador <= maxPassageiros){
+                resultado += `<br>Entrou o ${contador}° passageiro`;
+            } else{
+                resultado += `<br>O ${contador}° passageiro terá que esperar!`;
+            }
+        }
+        divMensagem.innerHTML = `${resultado}`
+    }
+</script>
