@@ -20,13 +20,10 @@
         
         if(num >= 0 && num <= 200){
             for(var contador = 1; contador <= num; contador++){
-                var resto = contador % 7;
-                if(resto == 0){
-                    resultado += `<br>${contador}`
+                if(contador % 7 == 0){
+                    resultado += `${contador}<br>`
                 }
             }
-        } else {
-            alert('Digite um número entre 0 e 200')
         }
         divMensagem.innerHTML = `${resultado}`;
     }
