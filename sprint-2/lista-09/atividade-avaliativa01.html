@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="divLogin">
+        <h1>Seja bem vindo ao Banco KNAB</h1>
+        <h3>Simulação de Empréstimos e Investimentos</h3>
+        <h4>Entre com os dados da sua conta</h4>
+        <input type="text" id="inputConta" placeholder="Conta">
+        <input type="text" id="inputDigito" placeholder="Digito">
+        <input type="text" id="inputSenha" placeholder="Senha">
+        <br><br>
+        <button onclick="simular()">Simular</button>
+    </div>
+
+    <div id="divSimulacao">
+        <h1>O Banco KNAB é a sua melhor opção</h1>
+        <h3>Empréstimos e Investimentos com as melhores taxas do mercado</h3>
+        <h4>Entre com os dados da sua simulação</h4>
+        <label for="inputValor">Valor da operação:</label>
+        <input type="text" id="inputValor" placeholder="Valor">
+        <br><br>
+        <select id="selectOperacao">
+            <option value="#">Selecione a operação</option>
+            <option value="1">Empréstimo</option>
+            <option value="2">Investimento</option>
+        </select>
+        <select id="selectPrazo">
+            <option value="#">Selecione o prazo</option>
+            <option value="1">Curto</option>
+            <option value="2">Médio</option>
+            <option value="3">Longo</option>
+        </select>
+        <br><br>
+        <button onclick="resultado()">Mostrar Resultado</button>
+        <div id="divMensagem"></div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    divSimulacao.style.display = "none";
+    function simular() {
+        conta = Number(inputConta.value);
+        digito = Number(inputDigito.value);
+        senha = inputSenha.value;
+
+        if (conta != 0) {
+            if (digito == conta % 10) {
+                if (digito == 0 || digito == 1 || digito == 2 || digito == 3) {
+                    if (senha == 'manaus') {
+                        divSimulacao.style.display = 'block';
+                        divLogin.style.display = 'none';
+
+                    } else {
+                        alert('Senha tem que ser igual a manaus');
+                    }
+                } else if (digito >= 4 && digito <= 7) {
+                    if (senha == 'recife') {
+                        divSimulacao.style.display = 'block';
+                        divLogin.style.display = 'none';
+
+                    } else {
+                        alert('Senha tem que ser igual a recife');
+                    }
+                } else if (senha == 'fortaleza') {
+                    divSimulacao.style.display = 'block';
+                    divLogin.style.display = 'none';
+
+                } else {
+                    alert('Senha tem que ser igual a fortaleza');
+                }
+            } else {
+                alert('Digito tem que ser igual ao resto da divisão do numero da conta por 10');
+            }
+        } else {
+            alert('Conta tem que ser diferente de zero');
+        }
+    }
+
+    function resultado() {
+        var valorOperacao = Number(inputValor.value);
+        var operacao = selectOperacao.value;
+        var prazo = selectPrazo.value;
+
+        if (prazo == '1' || prazo == '2') {
+            alert('Esta operação está condicionada ao seu perfil');
+        }
+
+        if (operacao == '1') {
+            var juros = 0;
+            console.log('emprestimo')
+            if (prazo == '1') {
+                juros = 0.24;
+                console.log('curto')
+            } else if (prazo == '2') {
+                juros = 0.16;
+                console.log('médio')
+            } else {
+                juros = 0.10;
+                console.log('longo')
+            }
+        }
+    }
+
+</script>
