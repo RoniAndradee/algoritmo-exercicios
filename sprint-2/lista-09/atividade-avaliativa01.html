@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
     <div id="divLogin">
         <h1>Seja bem vindo ao Banco KNAB</h1>
@@ -28,25 +26,29 @@
         <br><br>
         <select id="selectOperacao">
             <option value="#">Selecione a operação</option>
-            <option value="1">Empréstimo</option>
-            <option value="2">Investimento</option>
+            <option value="emprestimo">Empréstimo</option>
+            <option value="investimento">Investimento</option>
         </select>
         <select id="selectPrazo">
             <option value="#">Selecione o prazo</option>
-            <option value="1">Curto</option>
-            <option value="2">Médio</option>
-            <option value="3">Longo</option>
+            <option value="curto">Curto</option>
+            <option value="medio">Médio</option>
+            <option value="longo">Longo</option>
         </select>
         <br><br>
         <button onclick="resultado()">Mostrar Resultado</button>
+        <br><br>
+        <button onclick="voltar()" id="botaoVoltar">Voltar a Simulação</button>
         <div id="divMensagem"></div>
     </div>
 </body>
-
 </html>
 
 <script>
+    var simulacao = 0;
     divSimulacao.style.display = "none";
+    botaoVoltar.style.display = "none";
+
     function simular() {
         conta = Number(inputConta.value);
         digito = Number(inputDigito.value);
@@ -63,10 +65,10 @@
                 divSimulacao.style.display = 'block';
                 divLogin.style.display = 'none';
             } else {
-                alert('Conta Inválida');
+                alert('Senha Incorreta');
             }
         } else {
-            alert('Conta Inválida');
+            alert('Conta tem que ser diferente de zero e digito tem que ser igual ao resto da divisão do número da conta por 10');
         }
     }
 
@@ -74,28 +76,41 @@
         var valorOperacao = Number(inputValor.value);
         var operacao = selectOperacao.value;
         var prazo = selectPrazo.value;
-        var resultado = '';
+        var juros = 0;
+        simulacao++;
 
-        if (prazo == '1' || prazo == '2') {
+        if (prazo == 'curto' || prazo == 'medio') {
             alert('Esta operação está condicionada ao seu perfil');
         }
 
-        if (operacao == '1') {
-            var juros = 0;
-            console.log('emprestimo')
-            if (prazo == '1') {
-                juros = 0.24;
-                console.log('curto')
-            } else if (prazo == '2') {
-                juros = 0.16;
-                console.log('médio')
-            } else {
-                juros = 0.10;
-                console.log('longo')
+        if (operacao == 'emprestimo') {
+            if (prazo == 'curto') {
+                juros = valorOperacao * 0.24;
+            } else if (prazo == 'medio') {
+                juros = valorOperacao * 0.16;
+            } else if (prazo == 'longo') {
+                juros = valorOperacao * 0.10;
             }
+
+            divMensagem.innerHTML += `<br>Simulação ${simulacao} - Para o empréstimo R$${valorOperacao} no ${prazo} prazo será cobrado os juros de R$ ${juros} ao ano`
+        } else if (operacao == 'investimento') {
+            if (prazo == 'curto') {
+                juros = valorOperacao * 0.05;
+            } else if (prazo == 'medio') {
+                juros = valorOperacao * 0.08;
+            } else if (prazo == 'longo') {
+                juros = valorOperacao * 0.12;
+            }
+
+            divMensagem.innerHTML += `<br>Simulação ${simulacao} - Investindo R$${valorOperacao} no ${prazo} prazo o seu rendimento será de R$ ${juros} ao ano`
         }
+    botaoVoltar.style.display = "block";
 
+    }
 
+    function voltar() {
+        divMensagem.innerHTML = '';
+        simulacao = 0;
     }
 
 </script>
