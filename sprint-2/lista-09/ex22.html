@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="inputNum1">Insira o número inferior da amostragem</label>
+    <input type="text" id="inputNum1">
+    <br>
+    <br>
+    <label for="inputNum2">Insira o número superior da amostragem</label>
+    <input type="text" id="inputNum2">
+    <br>
+    <br>
+    <label for="inputDivisibilidade">Insira um número para testar a divisibilidade</label>
+    <input type="text" id="inputDivisibilidade">
+    <br>
+    <br>
+    <button onclick="contar()">Contar</button>
+    <div id="divMensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function contar() {
+        var limiteInferior = Number(inputNum1.value);
+        var limiteSuperior = Number(inputNum2.value);
+        var divisibilidade = Number(inputDivisibilidade.value);
+        var resultado = '';
+        var qtdExibidos = 0;
+        var soma = 0;  
+        var media = 0;
+        var maiorNumero = 0;
+        var menorNumero = 0;
+
+        if (limiteInferior > 1 && (limiteSuperior > limiteInferior && limiteSuperior < 100)) {
+            if (divisibilidade >= 3 && divisibilidade <= 10) {
+                for (var contador = limiteInferior; contador <= limiteSuperior; contador++) {
+                    if (contador % divisibilidade == 0) {
+                        resultado += `${contador}, `;
+                        qtdExibidos++;
+                        soma = soma + contador;
+                        media = soma / qtdExibidos;
+                        maiorNumero = contador;
+                        menorNumero = resultado[0] + resultado[1];
+                    }
+                }
+                divMensagem.innerHTML = `${resultado} <br>
+                 Quantidade total de número exibidos: ${qtdExibidos} <br>
+                  Somatório dos números exibidos: ${soma} <br>
+                  Média dos números exibidos: ${media}<br>
+                  Maior número exibido: ${maiorNumero}<br>
+                  Menor número exibido: ${menorNumero}`
+            } else {
+                alert('Divisibilidade tem que estar entre 3 e 10')
+            }
+        } else {
+            alert('Limite inferior tem que ser maior que 0 e limite inferior tem que ser maior que o limite superior e menor que 100')
+        }
+    }
+</script>

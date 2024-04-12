@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="inputNum">Informe um número</label>
+    <input type="text" id="inputNum">
+    <button onclick="divisores()">Ver divisores</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    function divisores(){
+        var numero = Number(inputNum.value);
+        var resultado = '';
+
+        for(var contador = 1; contador <= numero; contador++){
+            if(numero % contador ==  0){    
+                resultado += `<br>${contador}<br>`
+            }
+        }
+        divMensagem.innerHTML = `<br>Divisores do número ${numero}: <br> ${resultado}`;
+    }
+</script>

@@ -19,9 +19,13 @@
         var resultado = '';
         var numero = Number(inputNum.value);
         var frase = inputFrase.value;
-
+        
         for(var contador = 1; contador <= numero; contador++){
-            resultado += alert(`${frase}`);
+            resultado += `${frase}\n`;            
+        }
+        
+        for(var contador = 1; contador <= numero; contador++){
+            alert(`${resultado}`);
         }
     }
 </script>
