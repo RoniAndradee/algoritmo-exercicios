@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Bairro: <input type="text" id="inputBairro">
+    <button onclick="register()">Cadastrar bairro</button>
+    Local que morou: <input type="number" id="inputBairroRelembrar">
+    <button onclick="remember()">Relembrar Moradia</button>
+    <div id="divMensagem"></div>
+</body>
+
+</html>
+
+<script>
+    var listaBairros = [];
+
+    function register() {
+        var bairro = inputBairro.value;
+        listaBairros.push(bairro);
+    }
+
+    function remember() {
+        var bairroRelembrar = inputBairroRelembrar.value - 1;
+        var tamanhoLista = listaBairros.length;
+
+        if (bairroRelembrar > tamanhoLista) {
+            divMensagem.innerHTML = `Ainda não morou num ${bairroRelembrar + 1}º bairro!`;
+        } else {
+            divMensagem.innerHTML = `Bairro: ${listaBairros[bairroRelembrar]}`;
+        }
+    }
+</script>
