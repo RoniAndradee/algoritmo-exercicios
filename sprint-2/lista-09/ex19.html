@@ -24,10 +24,8 @@
         
         for(var contador = 1; contador <= qtdDepositos; contador++){
             saldo += valorDepositos
-            resultado += `<br>${contador}º Mês: R$ ${saldo}`;
-            
+            resultado += `<br>${contador}º Mês: R$ ${saldo}`;    
         }   
-
         divMensagem.innerHTML = `${resultado}<br> Total guardado: R$ ${saldo}`;
     }
 </script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Números: <input type="text" id="inputNumeros">
+    <button onclick="gerar()">Gerar Aleatorios</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    function gerar(){
+        var numeros = Number(inputNumeros.value);
+        var resultado = '';
+        var aleatorio = 0;
+
+        for(var contador = 1; contador <= numeros; contador++){
+            aleatorio = Math.random();
+            
+            if(aleatorio >= 0.5){
+                resultado += `${aleatorio} - metade SUPERIOR<br>`;
+                
+            } else{
+                resultado += `${aleatorio} - metade INFERIOR<br>`;
+            }
+        }
+
+        divMensagem.innerHTML = `${resultado}`;
+    }
+</script>

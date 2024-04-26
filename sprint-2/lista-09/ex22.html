@@ -35,8 +35,8 @@
         var qtdExibidos = 0;
         var soma = 0;  
         var media = 0;
-        var maiorNumero = 0;
-        var menorNumero = 0;
+        var maiorNumero = limiteInferior;
+        var menorNumero = limiteSuperior;
 
         if (limiteInferior > 1 && (limiteSuperior > limiteInferior && limiteSuperior < 100)) {
             if (divisibilidade >= 3 && divisibilidade <= 10) {
@@ -44,10 +44,15 @@
                     if (contador % divisibilidade == 0) {
                         resultado += `${contador}, `;
                         qtdExibidos++;
-                        soma = soma + contador;
+                        soma += contador;
                         media = soma / qtdExibidos;
-                        maiorNumero = contador;
-                        menorNumero = resultado[0] + resultado[1];
+
+                        if(contador > maiorNumero){
+                            maiorNumero = contador;
+                        } 
+                        if(contador < menorNumero){
+                            menorNumero = contador;
+                        }
                     }
                 }
                 divMensagem.innerHTML = `${resultado} <br>

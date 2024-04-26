@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="inputLimite">Insira um número para ser o limite da contagem</label>
+    <input type="text" id="inputLimite">
+    <br><br>
+    <label for="inputDivisibilidade">Insira o segundo número para teste de divisibilidade</label>
+    <input type="text" id="inputDivisibilidade">
+    <br><br>
+    <button onclick="somar()">Somar Números</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+
+<script>
+    function somar(){
+        var limite = Number(inputLimite.value);
+        var divisibilidade = Number(inputDivisibilidade.value);
+        var resultado = '';
+        var somaMultiplos = 0;
+
+        if(divisibilidade >= 1 && divisibilidade <= limite){
+            for(var contador = 1; contador <= limite; contador++){
+                if(contador % divisibilidade == 0){
+                    resultado += `<br>${contador}`;
+                    somaMultiplos += contador;
+                }
+            }
+            divMensagem.innerHTML = `${resultado} <br>Soma dos Múltiplos: ${somaMultiplos}`;
+        } else{
+            alert('Valores inválidos')
+        }
+    }
+</script>
