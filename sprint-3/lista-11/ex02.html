@@ -7,10 +7,10 @@
 </head>
 <body>
     Destino de Viagem: <input type="text" id="inputDestino">
-    <button onclick="add()">adicionar</button>
-    <button onclick="firstTravel()">Primeira viagem</button>
-    <button onclick="thirdTravel()">Terceira viagem</button>
-    <button onclick="lastTravel()">Última viagem</button>
+    <button onclick="adicionar()">adicionar</button>
+    <button onclick="primeiraViagem()">Primeira viagem</button>
+    <button onclick="terceiraViagem()">Terceira viagem</button>
+    <button onclick="ultimaViagem()">Última viagem</button>
     <div id="divMensagem"></div>
 </body>
 </html>
@@ -18,33 +18,32 @@
 <script>
     var listaDestinos = [];
 
-    function add(){
+    function adicionar(){
         var destino = inputDestino.value;
         listaDestinos.push(destino);
     }
 
-    function firstTravel(){
+    function primeiraViagem(){
         if(listaDestinos.length < 1){
             divMensagem.innerHTML = `Ainda não viajou`;
         } else{
             divMensagem.innerHTML = listaDestinos[0];
         }
     }
-
-    function thirdTravel(){
-        if(listaDestinos[2] == -1){
+    
+    function terceiraViagem(){
+        if(listaDestinos.length < 3){
             divMensagem.innerHTML = `Ainda não fez a terceira viagem`;
         } else{
             divMensagem.innerHTML = listaDestinos[2];
         }
     }
 
-    function lastTravel(){
+    function ultimaViagem(){
         if(listaDestinos.length < 1){
             divMensagem.innerHTML = `Ainda não viajou`;
         } else{
-            var tamanhoLista = listaDestinos.length;
-            divMensagem.innerHTML = listaDestinos[tamanhoLista - 1];
+            divMensagem.innerHTML = listaDestinos[listaDestinos.length - 1];
         }
     }
 </script>

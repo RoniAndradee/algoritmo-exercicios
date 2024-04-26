@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Filmes que mais gosta: <input type="text" id="inputFilmes">
+    <button onclick="register()">Cadastrar</button>
+    <div id="divMensagem"></div>
+</body>
+
+</html>
+
+<script>
+    var listaFilmes = [];
+
+    function register() {
+        filme = inputFilmes.value;
+        listaFilmes.push(filme)
+        var tamanhoLista = listaFilmes.length;
+        var resultado = '';
+
+        for (var i = 0; i < tamanhoLista; i++) {
+            if (i % 2 == 0) {
+                resultado += `<span style="color:#0000FF">${listaFilmes[i]}<span> <br>`
+            } else {
+                resultado += `<span style="color:#FF0000">${listaFilmes[i]}<span> <br>`
+            }
+        }
+
+        divMensagem.innerHTML = resultado;
+    }
+
+</script>

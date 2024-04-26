@@ -9,7 +9,7 @@
 
 <body>
     Informe uma fruta: <input type="text" id="inputFruta">
-    <button onclick="search()">pesquisar</button>
+    <button onclick="pesquisar()">pesquisar</button>
     <div id="divMensagem"></div>
 </body>
 
@@ -18,7 +18,7 @@
 <script>
     var listaFrutas = ['banana', 'maçã', 'pera', 'maracujá'];
 
-    function search() {
+    function pesquisar() {
         var pesquisa = inputFruta.value;
         if (listaFrutas.indexOf(pesquisa) >= 0) {
             divMensagem.innerHTML += `A fruta ${pesquisa} existe na lista!<br>`
@@ -26,5 +26,4 @@
             divMensagem.innerHTML += `A fruta ${pesquisa} não existe na lista! <br>`
         }
     }
-</script
 </script>
