@@ -25,24 +25,22 @@
         var projeto = inputProjeto.value;
         listaProjetos.push(projeto);
 
-        for (var i = 0; i < listaProjetos.length; i++) {
-            if (listaProjetos.length <= 4) {
-                nivelProfissional = 'Júnior';
-            } else if (listaProjetos.length >= 5 && listaProjetos.length <= 12) {
-                nivelProfissional = 'Pleno';
-            } else if (listaProjetos.length >= 13){
-                nivelProfissional = 'Sênior';
-            }
-
-            resultado = `Você já fez ${listaProjetos.length} projetos. Por isso você é um profissional ${nivelProfissional}`;
+        if (listaProjetos.length <= 4) {
+            nivelProfissional = 'Júnior';
+        } else if (listaProjetos.length <= 12) {
+            nivelProfissional = 'Pleno';
+        } else {
+            nivelProfissional = 'Sênior';
         }
+
+        resultado = `Você já fez ${listaProjetos.length} projetos. Por isso você é um profissional ${nivelProfissional}`;
 
         divMensagem.innerHTML = resultado;
     }
 
-    function mostrar(){
+    function mostrar() {
         var resultado = '';
-        for(var i = listaProjetos.length - 1; i >= 0; i--){
+        for (var i = listaProjetos.length - 1; i >= 0; i--) {
             resultado += `${listaProjetos[i]} <br>`;
         }
 

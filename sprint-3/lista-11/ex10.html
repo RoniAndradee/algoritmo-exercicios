@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira as linhas de Onibus: <input type="text" id="inputLinha">
+    <button onclick="gravar()">Gravar busão</button>
+    <br>
+    Insira a linha que deseja pegar: <input type="text" id="inputPesquisa">
+    <button onclick="pesquisar()">Pesquisar</button>
+    <div id="divMensagem"></div>
+</body>
+
+</html>
+
+<script>
+    var listaBusao = [];
+
+    function gravar() {
+        var linha = inputLinha.value;
+        var resultado = '';
+        listaBusao.push(linha);
+
+        for (var i = listaBusao.length - 1; i >= 0; i--) {
+            resultado += `${listaBusao[i]} <br>`;
+        }
+        divMensagem.innerHTML = resultado;
+    }
+
+    function pesquisar() {
+        var pesquisa = inputPesquisa.value;
+        var contador = '';
+        var ordem = [];
+
+
+        for (var i = 0; i < listaBusao.length; i++) {
+            if (listaBusao[i] == pesquisa) {
+                contador++;
+                ordem.push(i + 1);
+            }
+        }
+
+        if (contador > 0) {
+            divMensagem.innerHTML = `Você já pegou essa linha ${contador} vezes, nessa ordem: ${ordem} <br>`;
+        } else {
+            divMensagem.innerHTML = "Você nunca pegou essa linha"
+        }
+    }
+</script>
