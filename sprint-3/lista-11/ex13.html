@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="selectResultado">
+        <option value="#">Indique o resultado</option>
+        <option value="V">Vitória</option>
+        <option value="E">Empate</option>
+        <option value="D">Derrota</option>
+    </select>
+    <button onclick="registrar()">Registrar jogo</button>
+    <input type="text" oninput="pesquisa()" id="inputPesquisa">
+    <div id="divMensagem"></div>
+</body>
+
+</html>
+
+<script>
+    var listaJogos = [];
+
+    function registrar() {
+        var resultado = selectResultado.value;
+        var vitorias = 0;
+        var empates = 0;
+        var derrotas = 0;
+        var pontos = 0;
+        var aproveitamento = 0;
+        var mensagem = '';
+        listaJogos.push(resultado);
+
+        for (var i = 0; i < listaJogos.length; i++) {
+            if (listaJogos[i] == 'V') {
+                vitorias++;
+                pontos += 3;
+            } else if (listaJogos[i] == 'E') {
+                empates++;
+                pontos += 1;
+            } else {
+                derrotas++;
+            }
+        }
+
+        aproveitamento = (pontos / (listaJogos.length * 3)) * 100;
+
+
+        mensagem = `O time teve ${vitorias} vitórias, ${empates} empates, ${derrotas} derrotas <br>
+        Pontuação Total: ${pontos} pontos <br>
+        Aproveitamento: ${aproveitamento}%`
+
+        divMensagem.innerHTML = mensagem;
+    }
+
+    function pesquisa() {
+        var pesquisa = Number(inputPesquisa.value);
+        var mensagem = '';
+        var resultadoJogo = '';
+
+        if (listaJogos[pesquisa - 1] != undefined) {
+            for (var i = 0; i < listaJogos.length; i++) {
+                if (listaJogos[i] == 'V') {
+                    resultadoJogo = 'Ganhou';
+                } else if (listaJogos[i] == 'E'){
+                    resultadoJogo = 'Empatou';
+                } else {
+                    resultadoJogo = 'Perdeu';
+                }
+            }
+
+            mensagem = `No ${pesquisa}° jogo, o time ${resultadoJogo}`;
+
+        } else {
+            mensagem = `Não foi cadastrado um ${pesquisa}° jogo`;
+        }
+
+        divMensagem.innerHTML = mensagem;
+    }
+</script>

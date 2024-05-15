@@ -34,19 +34,17 @@
 
     function pesquisar() {
         var pesquisa = inputPesquisa.value;
-        var contador = '';
         var ordem = [];
 
 
         for (var i = 0; i < listaBusao.length; i++) {
             if (listaBusao[i] == pesquisa) {
-                contador++;
                 ordem.push(i + 1);
             }
         }
 
-        if (contador > 0) {
-            divMensagem.innerHTML = `Você já pegou essa linha ${contador} vezes, nessa ordem: ${ordem} <br>`;
+        if (ordem.length > 0) {
+            divMensagem.innerHTML = `Você já pegou essa linha ${ordem.length} vezes, nessa ordem: ${ordem} <br>`;
         } else {
             divMensagem.innerHTML = "Você nunca pegou essa linha"
         }
