@@ -63,9 +63,9 @@
 
         if (listaJogos[pesquisa - 1] != undefined) {
             for (var i = 0; i < listaJogos.length; i++) {
-                if (listaJogos[i] == 'V') {
+                if (listaJogos[pesquisa - 1] == 'V') {
                     resultadoJogo = 'Ganhou';
-                } else if (listaJogos[i] == 'E'){
+                } else if (listaJogos[pesquisa - 1] == 'E'){
                     resultadoJogo = 'Empatou';
                 } else {
                     resultadoJogo = 'Perdeu';

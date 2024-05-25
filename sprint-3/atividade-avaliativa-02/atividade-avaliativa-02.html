@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Ingrediente: <input type="text" id="inputIngrediente">
+    <br>
+    Peso em gramas: <input type="text" id="inputPeso">
+    <br>
+    Preço por KG: <input type="text" id="inputPreco">
+    <br>
+    <button onclick="adicionarIngrediente()">Adicionar Ingrediente no Blend</button>
+    <br>
+    <br>
+    Nome do hamburguer: <input type="text" id="inputHamburguer">
+    <br>
+    <button onclick="preparar()">Preparar Blend e Registrar</button>
+    <div id="divMensagem"></div>
+</body>
+
+</html>
+
+<script>
+    var listaIngredientes = [];
+    var listaPesos = [];
+    var listaPrecos = [];
+
+    function adicionarIngrediente() {
+        var ingrediente = inputIngrediente.value;
+        var peso = Number(inputPeso.value);
+        var preco = Number(inputPreco.value);
+
+        if (ingrediente == '' || peso == 0 || preco == 0 || listaIngredientes.indexOf(ingrediente) != -1) {
+            divMensagem.innerHTML = `<b style="color: #FF0000">Preencha todos os campos</b>`
+        } else {
+            listaIngredientes.push(ingrediente);
+            listaPesos.push(peso);
+            listaPrecos.push(preco);
+        }
+    }
+
+    function preparar() {
+        var hamburguer = inputHamburguer.value;
+        var resultado = '';
+        if (hamburguer == '' || listaIngredientes.length < 2) {
+            divMensagem.innerHTML = `<b style="color: #FF0000">Adicione ao menos 2 ingredientes para o blend!</b>`
+        } else {
+            for (var i = 0; i < listaIngredientes.length; i++) {
+                resultado += `${i} - Ingrediente: ${listaIngredientes[i]} - Peso: ${listaPesos[i]} - Preço KG: ${listaPrecos[i]}` 
+            }
+        }
+    }
+</script>
