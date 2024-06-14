@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="divInicio">
+        <button onclick="jogar()">Jogar Sete e Meio</button>
+    </div>
+    <div id="divJogo" style="display: none;">
+        <button onclick="pedir()">Pedir Outra Carta</button>
+        <button onclick="passar()">Passar Vez</button>
+    </div>
+</body>
+</html>
+
+<script>
+    var baralho = {
+        copas: [
+            'Ás',
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            'Valete',
+            'Rainha',
+            'Rei'
+        ],
+        espadas: [
+            'Ás',
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            'Valete',
+            'Rainha',
+            'Rei'
+        ],
+        ouros: [
+            'Ás',
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            'Valete',
+            'Rainha',
+            'Rei'
+        ],
+        paus: [
+            'Ás',
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            'Valete',
+            'Rainha',
+            'Rei'
+        ],
+    }
+    
+    function jogar(){
+        var num = (Math.random() * ((baralho.copas.length - 1) - 1) + 1).toFixed(0);
+        console.log(baralho.copas[num])
+    }
+</script>
