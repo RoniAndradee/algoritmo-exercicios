@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div id="divInicio">
         <button onclick="jogar()">Jogar Sete e Meio</button>
@@ -17,59 +19,161 @@
 </html>
 
 <script>
-    var baralho = {
-        copas: [
-            'Ás',
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            'Valete',
-            'Rainha',
-            'Rei'
-        ],
-        espadas: [
-            'Ás',
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            'Valete',
-            'Rainha',
-            'Rei'
-        ],
-        ouros: [
-            'Ás',
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            'Valete',
-            'Rainha',
-            'Rei'
-        ],
-        paus: [
-            'Ás',
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            'Valete',
-            'Rainha',
-            'Rei'
-        ],
-    }
-    
-    function jogar(){
-        var num = (Math.random() * ((baralho.copas.length - 1) - 1) + 1).toFixed(0);
-        console.log(baralho.copas[num])
+    // const baralho = [
+
+    //     copas = {
+    //         as: `${cartas[0]} De Copas`,
+    //         2: `${cartas[1]} De Copas`,
+    //         3: `${cartas[2]} De Copas`,
+    //         4: `${cartas[3]} De Copas`,
+    //         5: `${cartas[4]} De Copas`,
+    //         6: `${cartas[5]} De Copas`,
+    //         7: `${cartas[6]} De Copas`,
+    //         valete: `${cartas[7]} De Copas`,
+    //         rainha: `${cartas[8]} De Copas`,
+    //         rei: `${cartas[9]} De Copas`,
+    //     },
+    //     espadas = {
+    //         as: `${cartas[0]} De Espadas`,
+    //         2: `${cartas[1]} De Espadas`,
+    //         3: `${cartas[2]} De Espadas`,
+    //         4: `${cartas[3]} De Espadas`,
+    //         5: `${cartas[4]} De Espadas`,
+    //         6: `${cartas[5]} De Espadas`,
+    //         7: `${cartas[6]} De Espadas`,
+    //         valete: `${cartas[7]} De Espadas`,
+    //         rainha: `${cartas[8]} De Espadas`,
+    //         rei: `${cartas[9]} De Espadas`
+    //     },
+    //     ouros = {
+    //         as: `${cartas[0]} De Ouros`,
+    //         2: `${cartas[1]} De Ouros`,
+    //         3: `${cartas[2]} De Ouros`,
+    //         4: `${cartas[3]} De Ouros`,
+    //         5: `${cartas[4]} De Ouros`,
+    //         6: `${cartas[5]} De Ouros`,
+    //         7: `${cartas[6]} De Ouros`,
+    //         valete: `${cartas[7]} De Ouros`,
+    //         rainha: `${cartas[8]} De Ouros`,
+    //         rei: `${cartas[9]} De Ouros`
+    //     },
+    //     paus = {
+    //         as: `${cartas[0]} De Paus`,
+    //         2: `${cartas[1]} De Paus`,
+    //         3: `${cartas[2]} De Paus`,
+    //         4: `${cartas[3]} De Paus`,
+    //         5: `${cartas[4]} De Paus`,
+    //         6: `${cartas[5]} De Paus`,
+    //         7: `${cartas[6]} De Paus`,
+    //         valete: `${cartas[7]} De Paus`,
+    //         rainha: `${cartas[8]} De Paus`,
+    //         rei: `${cartas[9]} De Paus`
+    //     },
+    // ]
+
+    // const baralho = {
+    //     'copas': [
+    //         'Ás De Copas',
+    //         '2 De Copas',
+    //         '3 De Copas' ,
+    //         '4 De Copas' ,
+    //         '5 De Copas' ,
+    //         '6 De Copas' ,
+    //         '7 De Copas' ,
+    //         'Valete De Copas' ,
+    //         'Rainha De Copas' ,
+    //         'Rei De Copas'
+    //     ] ,
+    //     'espadas': [
+    //         'Ás De Espadas' ,
+    //         '2 De Espadas',
+    //         '3 De Espadas',
+    //         '4 De Espadas',
+    //         '5 De Espadas',
+    //         '6 De Espadas',
+    //         '7 De Espadas',
+    //         'Valete De Espadas',
+    //         'Rainha De Espadas',
+    //         'Rei De Espadas'
+    //     ],
+    //     'ouros': [
+    //         'Ás De Ouros',
+    //         '2 De Ouros',
+    //         '3 De Ouros',
+    //         '4 De Ouros',
+    //         '5 De Ouros',
+    //         '6 De Ouros',
+    //         '7 De Ouros',
+    //         'Valete De Ouros',
+    //         'Rainha De Ouros',
+    //         'Rei De Ouros'
+    //     ],
+    //     'paus': [
+    //         'Ás De Paus',
+    //         '2 De Paus',
+    //         '3 De Paus',
+    //         '4 De Paus',
+    //         '5 De Paus',
+    //         '6 De Paus',
+    //         '7 De Paus',
+    //         'Valete De Paus',
+    //         'Rainha De Paus',
+    //         'Rei De Paus'
+    //     ]
+    // }
+
+    const baralho = [
+        {carta: 'Ás', naipe: 'Copas', valor: 1},
+        {carta: '2', naipe: 'Copas', valor: 2},
+        {carta: '3', naipe: 'Copas', valor: 3},
+        {carta: '4', naipe: 'Copas', valor: 4},
+        {carta: '5', naipe: 'Copas', valor: 5},
+        {carta: '6', naipe: 'Copas', valor: 6},
+        {carta: '7', naipe: 'Copas', valor: 7},
+        {carta: 'Valete', naipe: 'Copas', valor: 0.5},
+        {carta: 'Rainha', naipe: 'Copas', valor: 0.5},
+        {carta: 'Rei', naipe: 'Copas', valor: 0.5},
+        {carta: 'Ás', naipe: 'Espadas', valor: 1},
+        {carta: '2', naipe: 'Espadas', valor: 2},
+        {carta: '3', naipe: 'Espadas', valor: 3},
+        {carta: '4', naipe: 'Espadas', valor: 4},
+        {carta: '5', naipe: 'Espadas', valor: 5},
+        {carta: '6', naipe: 'Espadas', valor: 6},
+        {carta: '7', naipe: 'Espadas', valor: 7},
+        {carta: 'Valete', naipe: 'Espadas', valor: 0.5},
+        {carta: 'Rainha', naipe: 'Espadas', valor: 0.5},
+        {carta: 'Rei', naipe: 'Espadas', valor: 0.5},
+        {carta: 'Ás', naipe: 'Ouros', valor: 1},
+        {carta: '2', naipe: 'Ouros', valor: 2},
+        {carta: '3', naipe: 'Ouros', valor: 3},
+        {carta: '4', naipe: 'Ouros', valor: 4},
+        {carta: '5', naipe: 'Ouros', valor: 5},
+        {carta: '6', naipe: 'Ouros', valor: 6},
+        {carta: '7', naipe: 'Ouros', valor: 7},
+        {carta: 'Valete', naipe: 'Ouros', valor: 0.5},
+        {carta: 'Rainha', naipe: 'Ouros', valor: 0.5},
+        {carta: 'Rei', naipe: 'Ouros', valor: 0.5},
+        {carta: 'Ás', naipe: 'Paus', valor: 1},
+        {carta: '2', naipe: 'Paus', valor: 2},
+        {carta: '3', naipe: 'Paus', valor: 3},
+        {carta: '4', naipe: 'Paus', valor: 4},
+        {carta: '5', naipe: 'Paus', valor: 5},
+        {carta: '6', naipe: 'Paus', valor: 6},
+        {carta: '7', naipe: 'Paus', valor: 7},
+        {carta: 'Valete', naipe: 'Paus', valor: 0.5},
+        {carta: 'Rainha', naipe: 'Paus', valor: 0.5},
+        {carta: 'Rei', naipe: 'Paus', valor: 0.5},
+    ]
+
+    let pontuacaoBanca = [];
+    let pontucaoJogador = [];
+
+    function jogar() {
+        divInicio.style.display = 'none';
+        divJogo.style.display = 'block';
+        // var num = (Math.random() * ((baralho.length - 1) - 1) + 1).toFixed(0);
+
+
+
     }
 </script>
