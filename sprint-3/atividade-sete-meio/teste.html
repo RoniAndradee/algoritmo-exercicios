@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sete e Meio</title>
     <!-- <style>
         body {
             background-color: #2a2a2a;
@@ -106,56 +106,48 @@
         { carta: 'Valete', naipe: 'Paus', pontos: 0.5 },
         { carta: 'Rainha', naipe: 'Paus', pontos: 0.5 },
         { carta: 'Rei', naipe: 'Paus', pontos: 0.5 },
-    ]
+    ];
 
     let pontuacaoBanca = 0;
     let pontuacaoJogador = 0;
-    let cartasRetiradas = [];
-    let indiceAleatorio = 0;
-    let cartaSorteada = {};
+    let indiceAleatorio;
+    let cartaSorteada;
 
-    function sortearCarta() {
+    function sortearCarta (){
         indiceAleatorio = Math.floor((Math.random() * baralho.length));
         cartaSorteada = baralho[indiceAleatorio];
+
     }
 
     function jogar() {
-        divInicio.style.display = 'none';
-        divJogo.style.display = 'block';
+        document.getElementById('divInicio').style.display = 'none';
+        document.getElementById('divJogo').style.display = 'block';
         sortearCarta();
-        if (cartasRetiradas.indexOf(cartaSorteada) == -1) {
-            pontuacaoJogador += cartaSorteada.pontos;
-            cartasRetiradas.push(cartaSorteada);
-        } else {
-            sortearCarta();
-        }
+        pontuacaoJogador += cartaSorteada.pontos;
 
-        divMensagem.innerHTML = `Jogador: <br>
-        (${pontuacaoJogador} pontos) - ${cartaSorteada.carta} de ${cartaSorteada.naipe}`;
+        document.getElementById('divMensagem').innerHTML = `
+        Jogador: <br>
+        (${pontuacaoJogador} pontos) - ${cartaSorteada.carta} de ${cartaSorteada.naipe}
+    `;
     }
 
     function pedirOutra() {
         if (pontuacaoJogador < 7.5 && pontuacaoBanca == 0) {
             sortearCarta();
-            if (cartasRetiradas.indexOf(cartaSorteada) == -1) {
-                pontuacaoJogador += cartaSorteada.pontos;
-                cartasRetiradas.push(cartaSorteada);
-            } else {
-                sortearCarta();
-            }
-            divMensagem.innerHTML += `<br> Quero mais uma carta! <br>
-            (${pontuacaoJogador} pontos) - ${cartaSorteada.carta} de ${cartaSorteada.naipe}`;
+            pontuacaoJogador += cartaSorteada.pontos;
+
+            const mensagem = document.getElementById('divMensagem');
+            mensagem.innerHTML += `<br> Quero mais uma carta! <br>
+        (${pontuacaoJogador} pontos) - ${cartaSorteada.carta} de ${cartaSorteada.naipe}`;
 
             if (pontuacaoJogador == 7.5) {
-
-                divMensagem.innerHTML += `<br> SETE E MEIO! <br><br>
-                Banca: <br>
-                O jogador venceu com ${pontuacaoJogador} pontos!`;
+                mensagem.innerHTML += `<br> SETE E MEIO! <br><br>
+            Banca: <br>
+            O jogador venceu com ${pontuacaoJogador} pontos!`;
             } else if (pontuacaoJogador > 7.5) {
-
-                divMensagem.innerHTML += `<br> O JOGADOR ESTOUROU! <br><br>
-                Banca: <br>
-                a banca venceu com ${pontuacaoBanca} pontos!`;
+                mensagem.innerHTML += `<br> O JOGADOR ESTOUROU! <br><br>
+            Banca: <br>
+            A banca venceu com ${pontuacaoBanca} pontos!`;
             }
         }
     }
@@ -163,40 +155,34 @@
     function passarVez() {
         if (pontuacaoJogador < 7.5) {
             while (pontuacaoBanca <= pontuacaoJogador) {
-                sortearCarta();
+                sortearCarta()
+                pontuacaoBanca += cartaSorteada.pontos;
 
-                if (cartasRetiradas.indexOf(cartaSorteada) == -1) {
-                    cartasRetiradas.push(cartaSorteada);
-                } else {
-                    sortearCarta();
-                }
+                const mensagem = document.getElementById('divMensagem');
 
                 if (pontuacaoBanca == 0) {
                     pontuacaoBanca += cartaSorteada.pontos;
 
-                    divMensagem.innerHTML += `<br><br> Banca: <br>
-                    (${pontuacaoBanca} pontos) - ${cartaSorteada.carta} de ${cartaSorteada.naipe}`;
+                    mensagem.innerHTML += `<br><br> Banca: <br>
+                (${pontuacaoBanca} pontos) - ${cartaSorteada.carta} de ${cartaSorteada.naipe}`;
 
                     if (pontuacaoBanca > pontuacaoJogador) {
-
-                        divMensagem.innerHTML += `<br> A banca venceu com ${pontuacaoBanca} pontos!`;
+                        mensagem.innerHTML += `<br> A banca venceu com ${pontuacaoBanca} pontos!`;
                     }
                 } else if (pontuacaoBanca < 7.5 && pontuacaoBanca <= pontuacaoJogador) {
                     pontuacaoBanca += cartaSorteada.pontos;
 
-                    divMensagem.innerHTML += `<br> É necessário virar outra carta para a banca! <br>
-                    (${pontuacaoBanca} pontos) - ${cartaSorteada.carta} de ${cartaSorteada.naipe}`;
+                    mensagem.innerHTML += `<br> É necessário virar outra carta para a banca! <br>
+                (${pontuacaoBanca} pontos) - ${cartaSorteada.carta} de ${cartaSorteada.naipe}`;
 
                     if (pontuacaoBanca == 7.5) {
-
-                        divMensagem.innerHTML += `<br> SETE E MEIO! <br><br>
-                        A banca venceu com ${pontuacaoBanca} pontos!`;
+                        mensagem.innerHTML += `<br> SETE E MEIO! <br><br>
+                    A banca venceu com ${pontuacaoBanca} pontos!`;
                     } else if (pontuacaoBanca > 7.5) {
-
-                        divMensagem.innerHTML += `<br> BANCA ESTOUROU! <br><br>
-                        O jogador venceu com ${pontuacaoJogador} pontos!`;
+                        mensagem.innerHTML += `<br> BANCA ESTOUROU! <br><br>
+                    O jogador venceu com ${pontuacaoJogador} pontos!`;
                     } else if (pontuacaoBanca > pontuacaoJogador) {
-                        divMensagem.innerHTML += `<br> A banca venceu com ${pontuacaoBanca} pontos!`;
+                        mensagem.innerHTML += `<br> A banca venceu com ${pontuacaoBanca} pontos!`;
                     }
                 }
             }
