@@ -1,0 +1,6 @@
+
+    var listaProdutosComprados = [];
+    var listaQuantidadeComprada = [];
+
+    
+
